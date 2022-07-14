@@ -1,5 +1,7 @@
 package edu.programacion.avanzada.albertoacosta.ProyectoFinal.domain;
 
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.dto.ProductDTO;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.UpdateProductRequest;
 import lombok.*;
 
 import javax.persistence.*;
@@ -29,4 +31,20 @@ public class Product {
 
     @Column
     private BigDecimal price;
+
+    public ProductDTO toDTO() {
+        return ProductDTO.builder()
+                .id(id)
+                .name(name)
+                .description(description)
+                .availableQuantity(availableQuantity)
+                .price(price)
+                .build();
+    }
+
+    public void applyChanges(UpdateProductRequest updateProductRequest) {
+        description = updateProductRequest.getDescription();
+        availableQuantity = updateProductRequest.getAvailableQuantity();
+        price = updateProductRequest.getPrice();
+    }
 }
