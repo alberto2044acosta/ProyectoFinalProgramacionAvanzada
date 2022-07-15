@@ -2,9 +2,9 @@ package edu.programacion.avanzada.albertoacosta.ProyectoFinal.services;
 
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.domain.Product;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.dto.ProductDTO;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.CreateProductRequest;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.DeleteProductRequest;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.UpdateProductRequest;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.product.CreateProductRequest;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.product.DeleteProductRequest;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.product.UpdateProductRequest;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.repositories.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

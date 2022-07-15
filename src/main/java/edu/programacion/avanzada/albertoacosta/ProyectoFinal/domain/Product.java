@@ -1,7 +1,7 @@
 package edu.programacion.avanzada.albertoacosta.ProyectoFinal.domain;
 
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.dto.ProductDTO;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.UpdateProductRequest;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.product.UpdateProductRequest;
 import lombok.*;
 
 import javax.persistence.*;

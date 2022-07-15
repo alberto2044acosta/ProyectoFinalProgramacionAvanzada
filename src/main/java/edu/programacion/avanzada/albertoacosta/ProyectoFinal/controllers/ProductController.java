@@ -1,8 +1,8 @@
 package edu.programacion.avanzada.albertoacosta.ProyectoFinal.controllers;
 
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.CreateProductRequest;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.DeleteProductRequest;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.UpdateProductRequest;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.product.CreateProductRequest;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.product.DeleteProductRequest;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.product.UpdateProductRequest;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.CreateProductResponse;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.DeleteProductResponse;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.GetProductResponse;

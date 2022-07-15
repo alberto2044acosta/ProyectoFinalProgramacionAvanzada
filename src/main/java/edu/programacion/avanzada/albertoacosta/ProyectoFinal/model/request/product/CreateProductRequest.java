@@ -1,4 +1,4 @@
-package edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request;
+package edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.product;
 
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.domain.Product;
 import lombok.*;

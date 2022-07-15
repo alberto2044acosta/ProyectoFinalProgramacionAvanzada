@@ -1,6 +1,5 @@
-package edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request;
+package edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.payment;
 
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.domain.Product;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -10,7 +9,7 @@ import java.math.BigDecimal;
 @Builder
 @Getter
 @Setter
-public class UpdateProductRequest {
+public class UpdatePaymentMRequest {
 
     private Long id;
     private String description;

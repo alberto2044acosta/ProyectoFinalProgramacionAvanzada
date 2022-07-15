@@ -1,5 +1,7 @@
 package edu.programacion.avanzada.albertoacosta.ProyectoFinal.domain;
 
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.dto.PaymentMethodDTO;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.payment.UpdatePaymentMRequest;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,4 +24,16 @@ public class PaymentMethod {
 
     @Column
     private String description;
+
+    public PaymentMethodDTO toDTO() {
+        return PaymentMethodDTO.builder()
+                .id(id)
+                .name(name)
+                .description(description)
+                .build();
+    }
+
+    public void applyChanges(UpdatePaymentMRequest updatePaymentMRequest) {
+        description = updatePaymentMRequest.getDescription();
+    }
 }
