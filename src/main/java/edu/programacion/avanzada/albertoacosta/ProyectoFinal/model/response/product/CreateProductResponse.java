@@ -1,4 +1,4 @@
-package edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response;
+package edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.product;
 
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.dto.ProductDTO;
 import lombok.*;
@@ -10,7 +10,7 @@ import java.util.List;
 @Builder
 @Getter
 @Setter
-public class GetProductResponse {
+public class CreateProductResponse {
 
-    private List<ProductDTO> products;
+    private ProductDTO product;
 }
