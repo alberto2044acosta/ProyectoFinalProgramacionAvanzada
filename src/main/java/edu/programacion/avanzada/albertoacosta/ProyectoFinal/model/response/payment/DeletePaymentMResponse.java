@@ -3,7 +3,6 @@ package edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.pay
 import lombok.*;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
 @Getter
 @Setter
