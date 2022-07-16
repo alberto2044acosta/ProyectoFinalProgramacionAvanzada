@@ -9,7 +9,7 @@ import java.util.UUID;
 @Builder
 @Getter
 @Setter
-public class AddProductCheckoutReq {
+public class CheckoutAddProductReq {
 
     private UUID id;
 

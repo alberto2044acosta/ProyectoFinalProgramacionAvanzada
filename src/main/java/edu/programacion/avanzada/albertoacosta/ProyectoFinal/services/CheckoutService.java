@@ -2,8 +2,7 @@ package edu.programacion.avanzada.albertoacosta.ProyectoFinal.services;
 
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.domain.*;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.dto.CheckoutDTO;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.dto.OrderDTO;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.checkout.AddProductCheckoutReq;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.checkout.CheckoutAddProductReq;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.checkout.CheckoutUAddressReq;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.checkout.CheckoutUPaymentMReq;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.repositories.*;
@@ -48,7 +47,7 @@ public class CheckoutService {
         return checkout.toDTO();
     }
 
-    public CheckoutDTO addProducts(AddProductCheckoutReq addProductCheckoutReq) {
+    public CheckoutDTO addProducts(CheckoutAddProductReq addProductCheckoutReq) {
         Checkout checkout = checkoutRepository.findById(addProductCheckoutReq.getId()).orElseThrow();
         Product product = productRepository.findById(addProductCheckoutReq.getProduct()).orElseThrow();
         List<CheckoutProduct> productsToBuy = checkout.getProductsToBuy();
