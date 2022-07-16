@@ -3,6 +3,7 @@ package edu.programacion.avanzada.albertoacosta.ProyectoFinal.controllers;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.product.CreateProductRequest;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.product.DeleteProductRequest;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.product.UpdateProductRequest;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.payment.GetPaymentMResponse;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.product.CreateProductResponse;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.product.DeleteProductResponse;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.product.GetProductResponse;
@@ -11,6 +12,8 @@ import edu.programacion.avanzada.albertoacosta.ProyectoFinal.services.ProductSer
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -23,6 +26,13 @@ public class ProductController {
     public ResponseEntity<GetProductResponse> get() {
         return ResponseEntity.ok(GetProductResponse.builder()
                 .products(productService.getAll())
+                .build());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<GetProductResponse> get(@RequestParam Long id) {
+        return ResponseEntity.ok(GetProductResponse.builder()
+                .products(List.of(productService.get(id)))
                 .build());
     }
 

@@ -12,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/addresses")
@@ -23,6 +25,13 @@ public class AddressController {
     public ResponseEntity<GetAddressResponse> get() {
         return ResponseEntity.ok(GetAddressResponse.builder()
                 .addresses(addressService.getAll())
+                .build());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<GetAddressResponse> get(@RequestParam Long id) {
+        return ResponseEntity.ok(GetAddressResponse.builder()
+                .addresses(List.of(addressService.get(id)))
                 .build());
     }
 

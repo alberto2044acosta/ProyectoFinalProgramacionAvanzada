@@ -1,6 +1,7 @@
 package edu.programacion.avanzada.albertoacosta.ProyectoFinal.services;
 
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.domain.PaymentMethod;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.dto.OrderDTO;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.dto.PaymentMethodDTO;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.payment.CreatePaymentMRequest;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.payment.DeletePaymentMRequest;
@@ -20,6 +21,10 @@ public class PaymentMethodService {
 
     public List<PaymentMethodDTO> getAll() {
         return paymentMethodRepository.findAll().stream().map(PaymentMethod::toDTO).collect(Collectors.toList());
+    }
+
+    public PaymentMethodDTO get(Long id) {
+        return paymentMethodRepository.findById(id).orElseThrow().toDTO();
     }
 
     public PaymentMethodDTO create(CreatePaymentMRequest createPaymentMRequest) {

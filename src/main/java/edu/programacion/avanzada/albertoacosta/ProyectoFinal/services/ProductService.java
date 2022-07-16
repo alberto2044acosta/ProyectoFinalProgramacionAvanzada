@@ -1,6 +1,7 @@
 package edu.programacion.avanzada.albertoacosta.ProyectoFinal.services;
 
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.domain.Product;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.dto.PaymentMethodDTO;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.dto.ProductDTO;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.product.CreateProductRequest;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.product.DeleteProductRequest;
@@ -20,6 +21,10 @@ public class ProductService {
 
     public List<ProductDTO> getAll() {
         return productRepository.findAll().stream().map(Product::toDTO).collect(Collectors.toList());
+    }
+
+    public ProductDTO get(Long id) {
+        return productRepository.findById(id).orElseThrow().toDTO();
     }
 
     public ProductDTO create(CreateProductRequest createProductRequest) {

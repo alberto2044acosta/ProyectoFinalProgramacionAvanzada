@@ -14,6 +14,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.UUID;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/checkout")
@@ -25,6 +28,13 @@ public class CheckoutController {
     public ResponseEntity<GetCheckoutResponse> get() {
         return ResponseEntity.ok(GetCheckoutResponse.builder()
                 .checkouts(checkoutService.getAll())
+                .build());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<GetCheckoutResponse> get(@RequestParam UUID id) {
+        return ResponseEntity.ok(GetCheckoutResponse.builder()
+                .checkouts(List.of(checkoutService.get(id)))
                 .build());
     }
 

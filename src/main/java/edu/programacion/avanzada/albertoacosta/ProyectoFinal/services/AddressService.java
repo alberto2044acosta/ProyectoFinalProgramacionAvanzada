@@ -1,13 +1,10 @@
 package edu.programacion.avanzada.albertoacosta.ProyectoFinal.services;
 
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.domain.Address;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.domain.PaymentMethod;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.dto.AddressDTO;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.address.CreateAddressRequest;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.address.DeleteAddressRequest;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.address.UpdateAddressRequest;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.payment.CreatePaymentMRequest;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.payment.UpdatePaymentMRequest;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.repositories.AddressRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,6 +20,10 @@ public class AddressService {
 
     public List<AddressDTO> getAll() {
         return addressRepository.findAll().stream().map(Address::toDTO).collect(Collectors.toList());
+    }
+
+    public AddressDTO get(Long id) {
+        return addressRepository.findById(id).orElseThrow().toDTO();
     }
 
     public AddressDTO create(CreateAddressRequest createAddressRequest) {

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,6 +26,10 @@ public class CheckoutService {
 
     public List<CheckoutDTO> getAll() {
         return checkoutRepository.findAll().stream().map(Checkout::toDTO).collect(Collectors.toList());
+    }
+
+    public CheckoutDTO get(UUID id) {
+        return checkoutRepository.findById(id).orElseThrow().toDTO();
     }
 
     public CheckoutDTO updatePaymentMethod(CheckoutUPaymentMReq checkoutUPaymentMReq) {
