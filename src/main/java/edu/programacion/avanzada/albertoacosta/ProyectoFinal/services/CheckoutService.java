@@ -9,6 +9,7 @@ import edu.programacion.avanzada.albertoacosta.ProyectoFinal.repositories.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -22,6 +23,7 @@ public class CheckoutService {
     private final PaymentMethodRepository paymentMethodRepository;
     private final AddressRepository addressRepository;
     private final ProductRepository productRepository;
+    private final CheckoutProductRepository checkoutProductRepository;
 
     public List<CheckoutDTO> getAll() {
         return checkoutRepository.findAll().stream().map(Checkout::toDTO).collect(Collectors.toList());
@@ -47,17 +49,42 @@ public class CheckoutService {
         return checkout.toDTO();
     }
 
-    public CheckoutDTO addProducts(CheckoutAddProductReq addProductCheckoutReq) {
-        Checkout checkout = checkoutRepository.findById(addProductCheckoutReq.getId()).orElseThrow();
-        Product product = productRepository.findById(addProductCheckoutReq.getProduct()).orElseThrow();
+    @Transactional
+    public CheckoutDTO addProducts(CheckoutAddProductReq checkoutAddProductReq) {
+        Checkout checkout = checkoutRepository.findById(checkoutAddProductReq.getId()).orElseThrow();
+        Product product = productRepository.findById(checkoutAddProductReq.getProduct()).orElseThrow();
+        if(checkoutAddProductReq.getQuantity() > product.getAvailableQuantity()) {
+            throw new RuntimeException("Available product if less than you need");
+        }
         List<CheckoutProduct> productsToBuy = checkout.getProductsToBuy();
         if(productsToBuy == null){
             productsToBuy = new ArrayList<>();
         }
-        //TODO si el producto no existe lo agrego
-        //TODO si el producto existe lo actualizo
+        CheckoutProduct checkoutProduct = findProductInCheckout(productsToBuy, product.getId());
+        if(checkoutProduct == null) {
+            checkoutProduct = CheckoutProduct.builder()
+                    .product(product)
+                    .quantity(checkoutAddProductReq.getQuantity())
+                    .build();
+            checkoutProductRepository.save(checkoutProduct);
+            productsToBuy.add(checkoutProduct);
+        } else {
+            checkoutProduct.setQuantity(checkoutProduct.getQuantity() + checkoutAddProductReq.getQuantity());
+            checkoutProductRepository.save(checkoutProduct);
+        }
+        product.setAvailableQuantity(product.getAvailableQuantity() - checkoutAddProductReq.getQuantity());
+        productRepository.save(product);
         checkout.setProductsToBuy(productsToBuy);
         checkoutRepository.save(checkout);
         return checkout.toDTO();
+    }
+
+    private CheckoutProduct findProductInCheckout(List<CheckoutProduct> productsToBuy, Long productId) {
+        for(CheckoutProduct checkoutProduct : productsToBuy) {
+            if(checkoutProduct.getProduct().getId().equals(productId)){
+                return checkoutProduct;
+            }
+        }
+        return null;
     }
 }
