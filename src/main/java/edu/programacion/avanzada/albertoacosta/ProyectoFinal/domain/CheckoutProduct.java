@@ -1,5 +1,7 @@
 package edu.programacion.avanzada.albertoacosta.ProyectoFinal.domain;
 
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.dto.AddressDTO;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.dto.CheckoutProductDTO;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,4 +24,12 @@ public class CheckoutProduct {
 
     @Column
     private Long quantity;
+
+    public CheckoutProductDTO toDTO() {
+        return CheckoutProductDTO.builder()
+                .id(id)
+                .product(product.toDTO())
+                .quantity(quantity)
+                .build();
+    }
 }
