@@ -1,4 +1,4 @@
-package edu.programacion.avanzada.albertoacosta.ProyectoFinal.command;
+package edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.command;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.integration.annotation.ServiceActivator;

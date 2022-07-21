@@ -35,7 +35,4 @@ public class Address {
                 .build();
     }
 
-    public void applyChanges(UpdateAddressRequest updateAddressRequest) {
-        description = updateAddressRequest.getDescription();
-    }
 }
