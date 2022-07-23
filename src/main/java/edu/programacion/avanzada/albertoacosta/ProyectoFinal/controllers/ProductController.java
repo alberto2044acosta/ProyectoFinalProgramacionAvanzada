@@ -3,7 +3,6 @@ package edu.programacion.avanzada.albertoacosta.ProyectoFinal.controllers;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.product.CreateProductRequest;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.product.DeleteProductRequest;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.product.UpdateProductRequest;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.payment.GetPaymentMResponse;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.product.CreateProductResponse;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.product.DeleteProductResponse;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.product.GetProductResponse;
@@ -12,8 +11,6 @@ import edu.programacion.avanzada.albertoacosta.ProyectoFinal.services.ProductSer
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -24,35 +21,26 @@ public class ProductController {
 
     @GetMapping
     public ResponseEntity<GetProductResponse> get() {
-        return ResponseEntity.ok(GetProductResponse.builder()
-                .products(productService.getAll())
-                .build());
+        return ResponseEntity.ok(productService.getAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<GetProductResponse> get(@RequestParam Long id) {
-        return ResponseEntity.ok(GetProductResponse.builder()
-                .products(List.of(productService.get(id)))
-                .build());
+        return ResponseEntity.ok(productService.get(id));
     }
 
     @PostMapping
     public ResponseEntity<CreateProductResponse> create(@RequestBody CreateProductRequest createProductRequest) {
-        return ResponseEntity.ok(CreateProductResponse.builder()
-                .product(productService.create(createProductRequest))
-                .build());
+        return ResponseEntity.ok(productService.create(createProductRequest));
     }
 
     @PutMapping
     public ResponseEntity<UpdateProductResponse> update(@RequestBody UpdateProductRequest updateProductRequest) {
-        return ResponseEntity.ok(UpdateProductResponse.builder()
-                .product(productService.update(updateProductRequest))
-                .build());
+        return ResponseEntity.ok(productService.update(updateProductRequest));
     }
 
     @DeleteMapping
     public ResponseEntity<DeleteProductResponse> delete(@RequestBody DeleteProductRequest deleteEmployeeRequest) {
-        productService.delete(deleteEmployeeRequest);
-        return ResponseEntity.ok(DeleteProductResponse.builder().build());
+        return ResponseEntity.ok(productService.delete(deleteEmployeeRequest));
     }
 }

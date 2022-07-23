@@ -1,9 +1,9 @@
 package edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.product;
 
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.domain.Product;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.CreateAddressCommand;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.product.CreateProductCommand;
 import lombok.*;
 
-import javax.persistence.Column;
 import java.math.BigDecimal;
 
 @AllArgsConstructor
@@ -18,12 +18,13 @@ public class CreateProductRequest {
     private long availableQuantity;
     private BigDecimal price;
 
-    public Product toProduct() {
-        return Product.builder()
+    public CreateProductCommand toCommand() {
+        return CreateProductCommand.builder()
                 .name(name)
                 .description(description)
                 .availableQuantity(availableQuantity)
                 .price(price)
                 .build();
     }
+
 }

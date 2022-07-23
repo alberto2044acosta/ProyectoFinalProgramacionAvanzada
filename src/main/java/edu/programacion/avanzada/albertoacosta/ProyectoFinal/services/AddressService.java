@@ -10,7 +10,6 @@ import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.addr
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.address.GetAddressResponse;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.address.UpdateAddressResponse;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.command.CommandBus;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.repositories.AddressRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,11 +17,10 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AddressService {
 
-    private final AddressRepository addressRepository;
     private final CommandBus commandBus;
 
-    public GetAddressResponse getAll() {
-        return commandBus.sendCommand(GetAllAddressCommand.builder().build());
+    public GetAddressResponse getAll(Integer pageSize, Integer page, String name) {
+        return commandBus.sendCommand(GetAllAddressCommand.builder().pageSize(pageSize).page(page).name(name).build());
     }
 
     public GetAddressResponse get(Long id) {

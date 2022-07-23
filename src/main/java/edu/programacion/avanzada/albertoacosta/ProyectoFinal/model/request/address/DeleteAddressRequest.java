@@ -1,7 +1,6 @@
 package edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.address;
 
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.DeleteAddressCommand;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.domain.Address;
 import lombok.*;
 
 @AllArgsConstructor

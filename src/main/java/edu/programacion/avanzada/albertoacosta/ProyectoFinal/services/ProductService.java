@@ -1,45 +1,41 @@
 package edu.programacion.avanzada.albertoacosta.ProyectoFinal.services;
 
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.domain.Product;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.dto.PaymentMethodDTO;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.dto.ProductDTO;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.product.GetAllProductCommand;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.product.GetProductCommand;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.product.CreateProductRequest;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.product.DeleteProductRequest;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.product.UpdateProductRequest;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.repositories.ProductRepository;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.product.CreateProductResponse;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.product.DeleteProductResponse;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.product.GetProductResponse;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.product.UpdateProductResponse;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.command.CommandBus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class ProductService {
 
-    private final ProductRepository productRepository;
+    private final CommandBus commandBus;
 
-    public List<ProductDTO> getAll() {
-        return productRepository.findAll().stream().map(Product::toDTO).collect(Collectors.toList());
+    public GetProductResponse getAll() {
+        return commandBus.sendCommand(GetAllProductCommand.builder().build());
     }
 
-    public ProductDTO get(Long id) {
-        return productRepository.findById(id).orElseThrow().toDTO();
+    public GetProductResponse get(Long id) {
+        return commandBus.sendCommand(GetProductCommand.builder().id(id).build());
     }
 
-    public ProductDTO create(CreateProductRequest createProductRequest) {
-        Product product = productRepository.save(createProductRequest.toProduct());
-        return product.toDTO();
+    public CreateProductResponse create(CreateProductRequest createProductRequest) {
+        return commandBus.sendCommand(createProductRequest.toCommand());
     }
 
-    public ProductDTO update(UpdateProductRequest updateProductRequest) {
-        Product product = productRepository.findById(updateProductRequest.getId()).orElseThrow();
-        product.applyChanges(updateProductRequest);
-        productRepository.save(product);
-        return product.toDTO();
+    public UpdateProductResponse update(UpdateProductRequest updateProductRequest) {
+        return commandBus.sendCommand(updateProductRequest.toCommand());
     }
 
-    public void delete(DeleteProductRequest deleteProductRequest) {
-        productRepository.deleteById(deleteProductRequest.getId());
+    public DeleteProductResponse delete(DeleteProductRequest deleteProductRequest) {
+        return commandBus.sendCommand(deleteProductRequest.toCommand());
     }
 }

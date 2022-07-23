@@ -42,9 +42,4 @@ public class Product {
                 .build();
     }
 
-    public void applyChanges(UpdateProductRequest updateProductRequest) {
-        description = updateProductRequest.getDescription();
-        availableQuantity = updateProductRequest.getAvailableQuantity();
-        price = updateProductRequest.getPrice();
-    }
 }

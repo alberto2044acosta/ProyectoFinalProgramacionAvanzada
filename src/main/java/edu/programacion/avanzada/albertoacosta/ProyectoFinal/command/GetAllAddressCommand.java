@@ -8,7 +8,11 @@ import lombok.*;
 @Builder
 @Getter
 @Setter
+@ToString
 public class GetAllAddressCommand extends Command<GetAddressResponse> {
 
+    private int pageSize;
+    private int page;
+    private String name;
 }
 
