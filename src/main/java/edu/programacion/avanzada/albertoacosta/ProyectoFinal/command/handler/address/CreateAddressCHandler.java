@@ -1,6 +1,6 @@
-package edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.handler;
+package edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.handler.address;
 
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.CreateAddressCommand;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.address.CreateAddressCommand;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.domain.Address;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.address.CreateAddressResponse;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.command.CommandEvent;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 @CommandEvent(command = CreateAddressCommand.class)
 @Slf4j
-public class CreateAddressCommandHandler implements CommandHandler<CreateAddressResponse, CreateAddressCommand> {
+public class CreateAddressCHandler implements CommandHandler<CreateAddressResponse, CreateAddressCommand> {
 
     private final AddressRepository addressRepository;
 

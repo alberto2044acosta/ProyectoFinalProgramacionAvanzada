@@ -1,6 +1,6 @@
 package edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.address;
 
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.CreateAddressCommand;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.address.CreateAddressCommand;
 import lombok.*;
 
 @AllArgsConstructor

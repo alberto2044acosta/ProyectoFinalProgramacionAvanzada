@@ -1,7 +1,6 @@
-package edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.handler;
+package edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.handler.address;
 
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.CreateAddressCommand;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.GetAddressCommand;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.address.GetAddressCommand;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.dto.AddressDTO;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.address.GetAddressResponse;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.command.CommandEvent;
@@ -17,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @CommandEvent(command = GetAddressCommand.class)
 @Slf4j
-public class GetAddressCommandHandler implements CommandHandler<GetAddressResponse, GetAddressCommand> {
+public class GetAddressCHandler implements CommandHandler<GetAddressResponse, GetAddressCommand> {
 
     private final AddressRepository addressRepository;
 

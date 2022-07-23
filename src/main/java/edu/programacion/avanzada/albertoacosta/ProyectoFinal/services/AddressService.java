@@ -1,7 +1,7 @@
 package edu.programacion.avanzada.albertoacosta.ProyectoFinal.services;
 
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.GetAddressCommand;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.GetAllAddressCommand;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.address.GetAddressCommand;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.address.GetAllAddressCommand;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.address.CreateAddressRequest;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.address.DeleteAddressRequest;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.address.UpdateAddressRequest;

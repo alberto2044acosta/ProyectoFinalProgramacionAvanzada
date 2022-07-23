@@ -1,6 +1,6 @@
-package edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.handler;
+package edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.handler.address;
 
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.GetAllAddressCommand;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.address.GetAllAddressCommand;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.domain.Address;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.dto.AddressDTO;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.address.GetAddressResponse;
@@ -10,7 +10,6 @@ import edu.programacion.avanzada.albertoacosta.ProyectoFinal.repositories.Addres
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -20,7 +19,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @CommandEvent(command = GetAllAddressCommand.class)
 @Slf4j
-public class GetAllAddressCommandHandler implements CommandHandler<GetAddressResponse, GetAllAddressCommand> {
+public class GetAllAddressCHandler implements CommandHandler<GetAddressResponse, GetAllAddressCommand> {
 
     private final AddressRepository addressRepository;
 

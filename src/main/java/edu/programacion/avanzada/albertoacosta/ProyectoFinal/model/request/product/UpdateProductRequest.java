@@ -1,6 +1,5 @@
 package edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.request.product;
 
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.UpdateAddressCommand;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.product.UpdateProductCommand;
 import lombok.*;
 

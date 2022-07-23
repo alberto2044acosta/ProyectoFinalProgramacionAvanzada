@@ -1,4 +1,4 @@
-package edu.programacion.avanzada.albertoacosta.ProyectoFinal.command;
+package edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.address;
 
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.domain.Address;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.address.CreateAddressResponse;
