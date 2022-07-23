@@ -14,6 +14,6 @@ public class CommandBus {
     private final MessageChannel commandChannel;
 
     public <R, C> R sendCommand(C command) {
-        return (R) messagingTemplate.sendAndReceive(commandChannel, new GenericMessage<>(command)).getPayload();
+        //return (R) messagingTemplate.sendAndReceive(commandChannel, new GenericMessage<>(command)).getPayload();
     }
 }
