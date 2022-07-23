@@ -22,6 +22,7 @@ public class UpdateAddressCommandHandler implements CommandHandler<UpdateAddress
     public UpdateAddressResponse handle(UpdateAddressCommand updateAddressCommand) {
         Address address = addressRepository.findById(updateAddressCommand.getId()).orElseThrow();
         address.setDescription(updateAddressCommand.getDescription());
+        address.setName(updateAddressCommand.getName());
         addressRepository.save(address);
         log.info("Address {} update", updateAddressCommand.getId());
         return UpdateAddressResponse.builder().address(address.toDTO()).build();
