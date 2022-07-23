@@ -2,8 +2,8 @@ package edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.handler.ad
 
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.address.DeleteAddressCommand;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.address.DeleteAddressResponse;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.command.CommandEvent;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.command.CommandHandler;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.CommandEvent;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.CommandHandler;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.repositories.AddressRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

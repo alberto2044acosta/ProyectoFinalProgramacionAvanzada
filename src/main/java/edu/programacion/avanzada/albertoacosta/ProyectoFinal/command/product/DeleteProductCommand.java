@@ -1,7 +1,7 @@
 package edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.product;
 
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.product.DeleteProductResponse;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.command.Command;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.Command;
 import lombok.*;
 
 @AllArgsConstructor

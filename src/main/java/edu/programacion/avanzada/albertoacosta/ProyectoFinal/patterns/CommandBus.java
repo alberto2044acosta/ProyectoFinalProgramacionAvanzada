@@ -1,4 +1,4 @@
-package edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.command;
+package edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.integration.core.MessagingTemplate;

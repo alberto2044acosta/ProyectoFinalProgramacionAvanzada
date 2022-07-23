@@ -9,7 +9,7 @@ import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.prod
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.product.DeleteProductResponse;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.product.GetProductResponse;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.product.UpdateProductResponse;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.command.CommandBus;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.CommandBus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.command;
+package edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
