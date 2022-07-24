@@ -4,8 +4,8 @@ import edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.address.Get
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.domain.Address;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.dto.AddressDTO;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.address.GetAddressResponse;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.CommandEvent;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.CommandHandler;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.command.CommandEvent;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.command.CommandHandler;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.repositories.AddressRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

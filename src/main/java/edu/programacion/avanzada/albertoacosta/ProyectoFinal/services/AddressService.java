@@ -9,7 +9,7 @@ import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.addr
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.address.DeleteAddressResponse;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.address.GetAddressResponse;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.address.UpdateAddressResponse;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.CommandBus;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.command.CommandBus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
 package edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.address;
 
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.address.GetAddressResponse;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.Command;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.command.Command;
 import lombok.*;
 
 @AllArgsConstructor

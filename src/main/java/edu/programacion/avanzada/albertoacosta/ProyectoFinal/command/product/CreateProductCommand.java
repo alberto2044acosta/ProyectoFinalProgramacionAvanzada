@@ -2,7 +2,7 @@ package edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.product;
 
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.domain.Product;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.product.CreateProductResponse;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.Command;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.command.Command;
 import lombok.*;
 
 import java.math.BigDecimal;

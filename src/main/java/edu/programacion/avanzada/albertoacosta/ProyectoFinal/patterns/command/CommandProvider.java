@@ -1,4 +1,4 @@
-package edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns;
+package edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.command;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;

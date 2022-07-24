@@ -3,8 +3,8 @@ package edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.handler.pr
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.command.product.GetProductCommand;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.dto.ProductDTO;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.model.response.product.GetProductResponse;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.CommandEvent;
-import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.CommandHandler;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.command.CommandEvent;
+import edu.programacion.avanzada.albertoacosta.ProyectoFinal.patterns.command.CommandHandler;
 import edu.programacion.avanzada.albertoacosta.ProyectoFinal.repositories.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
