@@ -40,28 +40,28 @@ public class CheckoutController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<GetCheckoutResponse> get(@RequestParam UUID id) {
+    public ResponseEntity<GetCheckoutResponse> get(@RequestParam(required =false, defaultValue = "") UUID id) {
         return ResponseEntity.ok(GetCheckoutResponse.builder()
                 .checkouts(List.of(checkoutService.get(id)))
                 .build());
     }
 
     @PostMapping("/update/address")
-    public ResponseEntity<CheckoutUAddressRes> uptadeAddress(@RequestBody CheckoutUAddressReq checkoutUAddressReq) {
+    public ResponseEntity<CheckoutUAddressRes> uptadeAddress(@RequestBody(required =false) CheckoutUAddressReq checkoutUAddressReq) {
         return ResponseEntity.ok(CheckoutUAddressRes.builder()
                 .checkout(checkoutService.updateAddress(checkoutUAddressReq))
                 .build());
     }
 
     @PostMapping("/update/payment/method")
-    public ResponseEntity<CheckoutUPaymentMRes> updatePaymentMethod(@RequestBody CheckoutUPaymentMReq checkoutUPaymentMReq) {
+    public ResponseEntity<CheckoutUPaymentMRes> updatePaymentMethod(@RequestBody(required =false) CheckoutUPaymentMReq checkoutUPaymentMReq) {
         return ResponseEntity.ok(CheckoutUPaymentMRes.builder()
                 .checkout(checkoutService.updatePaymentMethod(checkoutUPaymentMReq))
                 .build());
     }
 
     @PostMapping("/add/product")
-    public ResponseEntity<CheckoutAddProductRes> addProduct(@RequestBody CheckoutAddProductReq checkoutAddProductReq) {
+    public ResponseEntity<CheckoutAddProductRes> addProduct(@RequestBody(required =false) CheckoutAddProductReq checkoutAddProductReq) {
         return ResponseEntity.ok(CheckoutAddProductRes.builder()
                 .checkout(checkoutService.addProducts(checkoutAddProductReq))
                 .build());

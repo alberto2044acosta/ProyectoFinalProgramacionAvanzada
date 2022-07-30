@@ -20,29 +20,29 @@ public class AddressController {
     private final AddressService addressService;
 
     @GetMapping
-    public ResponseEntity<GetAddressResponse> getAll(@RequestParam(required = false, defaultValue = "10") Integer pageSize,
+    public ResponseEntity<GetAddressResponse> getAll(@RequestParam(required =false, defaultValue = "10")  Integer pageSize,
                                                      @RequestParam(required = false, defaultValue = "0") Integer page,
                                                      @RequestParam(required = false, defaultValue = "") String name) {
         return ResponseEntity.ok(addressService.getAll(pageSize, page, name));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<GetAddressResponse> get(@RequestParam Long id) {
+    public ResponseEntity<GetAddressResponse> get(@RequestParam(required = false, defaultValue = "0") Long id) {
         return ResponseEntity.ok(addressService.get(id));
     }
 
     @PostMapping
-    public ResponseEntity<CreateAddressResponse> create(@RequestBody CreateAddressRequest createAddressRequest) {
+    public ResponseEntity<CreateAddressResponse> create(@RequestBody(required =false) CreateAddressRequest createAddressRequest) {
         return ResponseEntity.ok(addressService.create(createAddressRequest));
     }
 
     @PutMapping
-    public ResponseEntity<UpdateAddressResponse> update(@RequestBody UpdateAddressRequest updateAddressRequest) {
+    public ResponseEntity<UpdateAddressResponse> update(@RequestBody(required =false) UpdateAddressRequest updateAddressRequest) {
         return ResponseEntity.ok(addressService.update(updateAddressRequest));
     }
 
     @DeleteMapping
-    public ResponseEntity<DeleteAddressResponse> delete(@RequestBody DeleteAddressRequest deleteAddressRequest) {
+    public ResponseEntity<DeleteAddressResponse> delete(@RequestBody(required =false) DeleteAddressRequest deleteAddressRequest) {
         return ResponseEntity.ok(addressService.delete(deleteAddressRequest));
     }
 }

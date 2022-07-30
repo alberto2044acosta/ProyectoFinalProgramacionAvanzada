@@ -25,7 +25,7 @@ public class OrderController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<GetOrderResponse> get(@RequestParam UUID id) {
+    public ResponseEntity<GetOrderResponse> get(@RequestParam(required =false, defaultValue = "") UUID id) {
         return ResponseEntity.ok(GetOrderResponse.builder()
                 .orders(List.of(orderService.get(id)))
                 .build());

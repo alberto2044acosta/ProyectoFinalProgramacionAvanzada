@@ -30,28 +30,28 @@ public class PaymentMethodController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<GetPaymentMResponse> get(@RequestParam Long id) {
+    public ResponseEntity<GetPaymentMResponse> get(@RequestParam(required =false, defaultValue = "0") Long id) {
         return ResponseEntity.ok(GetPaymentMResponse.builder()
                 .paymentMethods(List.of(paymentMethodService.get(id)))
                 .build());
     }
 
     @PostMapping
-    public ResponseEntity<CreatePaymentMResponse> create(@RequestBody CreatePaymentMRequest createPaymentMRequest) {
+    public ResponseEntity<CreatePaymentMResponse> create(@RequestBody(required =false) CreatePaymentMRequest createPaymentMRequest) {
         return ResponseEntity.ok(CreatePaymentMResponse.builder()
                 .paymentMethod(paymentMethodService.create(createPaymentMRequest))
                 .build());
     }
 
     @PutMapping
-    public ResponseEntity<UpdatePaymentMResponse> update(@RequestBody UpdatePaymentMRequest updatePaymentMRequest) {
+    public ResponseEntity<UpdatePaymentMResponse> update(@RequestBody(required =false) UpdatePaymentMRequest updatePaymentMRequest) {
         return ResponseEntity.ok(UpdatePaymentMResponse.builder()
                 .paymentMethod(paymentMethodService.update(updatePaymentMRequest))
                 .build());
     }
 
     @DeleteMapping
-    public ResponseEntity<DeletePaymentMResponse> delete(@RequestBody DeletePaymentMRequest deletePaymentMRequest) {
+    public ResponseEntity<DeletePaymentMResponse> delete(@RequestBody(required =false) DeletePaymentMRequest deletePaymentMRequest) {
         paymentMethodService.delete(deletePaymentMRequest);
         return ResponseEntity.ok(DeletePaymentMResponse.builder().build());
     }

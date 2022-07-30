@@ -25,22 +25,22 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<GetProductResponse> get(@RequestParam Long id) {
+    public ResponseEntity<GetProductResponse> get(@RequestParam(required =false, defaultValue = "") Long id) {
         return ResponseEntity.ok(productService.get(id));
     }
 
     @PostMapping
-    public ResponseEntity<CreateProductResponse> create(@RequestBody CreateProductRequest createProductRequest) {
+    public ResponseEntity<CreateProductResponse> create(@RequestBody(required =false) CreateProductRequest createProductRequest) {
         return ResponseEntity.ok(productService.create(createProductRequest));
     }
 
     @PutMapping
-    public ResponseEntity<UpdateProductResponse> update(@RequestBody UpdateProductRequest updateProductRequest) {
+    public ResponseEntity<UpdateProductResponse> update(@RequestBody(required =false) UpdateProductRequest updateProductRequest) {
         return ResponseEntity.ok(productService.update(updateProductRequest));
     }
 
     @DeleteMapping
-    public ResponseEntity<DeleteProductResponse> delete(@RequestBody DeleteProductRequest deleteEmployeeRequest) {
+    public ResponseEntity<DeleteProductResponse> delete(@RequestBody(required =false) DeleteProductRequest deleteEmployeeRequest) {
         return ResponseEntity.ok(productService.delete(deleteEmployeeRequest));
     }
 }
